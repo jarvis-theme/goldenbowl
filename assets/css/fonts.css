@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Querround';
+  src: url('../fonts/querround.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/querround.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/querround.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/querround.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/querround.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/querround.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/HelveticaLTStd-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/HelveticaLTStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       /*url('../fonts/HelveticaLTStd-Bold.woff2') format('woff2'),*/ /* Super Modern Browsers */
+       /*url('../fonts/HelveticaLTStd-Bold.woff') format('woff'),*/ /* Pretty Modern Browsers */
+       url('../fonts/HelveticaLTStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/HelveticaLTStd-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Gulim';
+  src: url('../fonts/ufonts.com_gulim.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ufonts.com_gulim.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ufonts.com_gulim.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/ufonts.com_gulim.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/ufonts.com_gulim.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ufonts.com_gulim.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
