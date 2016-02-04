@@ -13,6 +13,9 @@
                     </ul>
                 </div>
                 @endif
+                <div class="plugin">
+                    {{pluginSidePowerup()}}
+                </div>
                 @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
