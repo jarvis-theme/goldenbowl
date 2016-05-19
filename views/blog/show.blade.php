@@ -1,7 +1,7 @@
         <div class="row">
             <div class="col-sm-4 col-md-3 col-lg-3">
                 @if(count(list_blog_category()) > 0)
-                 <div class="left-sidebar">
+                <div class="left-sidebar">
                     <ul id="category"> 
                     @foreach(list_blog_category() as $kat)
                         @if(!empty($kat->nama)) 

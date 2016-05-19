@@ -212,12 +212,10 @@
                                     <div class="post">
                                         @if(is_outstok($relproduk))
                                             <div class="item-icon"><span class="label label-default">KOSONG</span></div>
-                                        @else
-                                            @if(is_terlaris($relproduk))
+                                        @elseif(is_terlaris($relproduk))
                                             <div class="item-icon"><span class="label label-danger">HOT ITEM</span></div>
-                                            @elseif(is_produkbaru($relproduk))
+                                        @elseif(is_produkbaru($relproduk))
                                             <div class="item-icon"><span class="label label-info">BARU</span></div>
-                                            @endif
                                         @endif
                                         <a href="{{product_url($relproduk)}}">
                                             <img src="{{product_image_url($relproduk->gambar1,'thumb')}}" alt="{{$relproduk->nama}}">

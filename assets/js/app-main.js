@@ -22,6 +22,9 @@ require.config({
 		},
 		"fitvids" : {
 			deps : ['jquery']
+		},
+		"bootstrap" : {
+			deps : ['jquery']
 		}
 	},
 

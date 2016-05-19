@@ -2,7 +2,7 @@
 <html>
     <head>
         {{ Theme::partial('seostuff') }} 
-        {{ Theme::partial('defaultcss') }}  
+        {{ Theme::partial('defaultcss') }} 
         {{ Theme::asset()->styles() }} 
     </head>
     <body>
@@ -10,13 +10,14 @@
             {{ Theme::partial('header') }} 
             <div class="row">
                 <div id="content">
-                    {{ Theme::place('content') }}  
+                    {{ Theme::place('content') }} 
                 </div>
                 {{ Theme::partial('footer') }} 
             </div>
         </div>
 
-        {{ Theme::partial('defaultjs') }}
-        {{ Theme::partial('analytic') }}
+        {{ pluginPowerup() }} 
+        {{ Theme::partial('defaultjs') }} 
+        {{ Theme::partial('analytic') }} 
     </body>
 </html>

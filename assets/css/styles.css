@@ -550,7 +550,7 @@ body {
   padding: 26px 54px 10px; }
   #footer .tab-links {
     margin: 0 10px;
-    border-bottom: 1px solid #b0b0b0;
+    border-bottom: 1px solid #a37003;
     overflow: hidden;
     padding-bottom: 40px; }
   #footer .link {
@@ -1886,6 +1886,8 @@ form[name="order"] > input[name="SAVE"]:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+.adv-full { margin-bottom: 10px}
+.adv-full:last-child { margin-bottom: 0 }
 
 
 @media screen and (max-width: 321px){

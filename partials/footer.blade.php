@@ -75,7 +75,7 @@
                         @endif
                         @if(!empty($kontak->alamat))
                         <li><a> {{$kontak->alamat}}</a></li>
-                        @endif           
+                        @endif 
                     </ul>
                 </div>
             </div>
@@ -148,4 +148,3 @@
         </div>
     </div>
 </div>
-{{pluginPowerup()}} 
