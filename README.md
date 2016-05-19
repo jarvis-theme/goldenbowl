@@ -1,7 +1,7 @@
 Goldenbowl
 ------------
 
-![goldenbowl](http://jarvis-store.com/themes/master-tema/goldenbowl/goldenbowl-preview.jpg)
+![goldenbowl](https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/img/themes/goldenbowl/goldenbowl-preview.jpg)
 
 Goldenbowl adalah template toko online yang bertemakan simple. Template ini dilengkapi slider promo pada halaman utama, serta side banner dan fitur subscribe untuk mempromosikan produk anda.
 

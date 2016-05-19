@@ -1548,7 +1548,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin: 10px 0;
-  padding-left: 20px;
+  padding: 20px;
 }
   .register-page span {
     font-family: "Open Sans", sans-serif;
@@ -1871,6 +1871,22 @@ table.table tr td ul{ padding-left: 15px }
   text-transform: uppercase;
   color: #fff;
 }
+center#paypal button[type="submit"] {
+    background: #019CDE;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+center#paypal button[type="submit"]:hover { opacity: 0.6; cursor: pointer; }
+form[name="order"] > input[name="SAVE"] {
+  background: #B5062D; border: medium none; padding: 10px; border-radius: 5px; color: #fff;
+}
+form[name="order"] > input[name="SAVE"]:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 
 @media screen and (max-width: 321px){
   #footer .icon { margin: 2px }

@@ -8,7 +8,7 @@
 				@else
 				<a href="#">
 				@endif
-					{{HTML::image(slide_image_url($val->gambar), 'slide banner',array('class'=>'slide_gbr'))}}
+					{{HTML::image(slide_image_url($val->gambar), $val->title, array('class'=>'slide_gbr'))}} 
 				</a>
 				@if(!empty($val->text))
 				<div class="caption-info">

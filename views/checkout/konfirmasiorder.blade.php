@@ -9,7 +9,9 @@
                             <th><span>Tanggal Order</span></th>
                             <th><span>Detail Order</span></th>
                             <th><span>Jumlah</span></th>
+                            @if($checkouttype != 1)
                             <th><span>Jumlah yg belum dibayar</span></th>
+                            @endif
                             <th><span>No. Resi</span></th>
                             <th><span>Status</span></th>
                         </tr>
@@ -44,9 +46,11 @@
                                     @endif
                                 @endif
                             </td>
+                            @if($checkouttype != 1)
                             <td class="quantity">
                                 {{($order->status==2 || $order->status==3) ? price(0) : ' - '.price($order->total)}}
                             </td>
+                            @endif
                             <td class="sub-price">{{ $order->noResi }}</td>
                             <td class="total-price">
                             @if($checkouttype==1)
@@ -84,51 +88,56 @@
                         </tr>
                     </tbody>
                 </table>
+                <hr>
             </div>
-            <div class="row">
-                <div class="col-md-5">
-                @if($order->jenisPembayaran == 1 && $order->status == 0)
-                    @if($checkouttype==1) 
-                    {{-- */ $url = 'konfirmasiorder/' /* --}}
-                    @else 
-                    {{-- */ $url = 'konfirmasipreorder/' /* --}}
-                    @endif
+            @if($order->jenisPembayaran == 1 && $order->status == 0)
+            <div class="well">
+                <center><h3>{{trans('content.step5.confirm_btn')." ".trans('content.step3.transfer')}}</h3></center>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        @if($checkouttype==1) 
+                        {{-- */ $url = 'konfirmasiorder/' /* --}}
+                        @else 
+                        {{-- */ $url = 'konfirmasipreorder/' /* --}}
+                        @endif
 
-                    {{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}}
-                        <div class="form-group">
-                            <label  class="control-label"> Nama Pengirim:</label>
-                            <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
-                        </div>
-                        <div class="form-group">
-                            <label  class="control-label"> No Rekening:</label>
-                            <input type="text" class="form-control" placeholder="No Rekening" name="noRekPengirim" required>
-                        </div>
-                        <div class="form-group">
-                            <label  class="control-label"> Rekening Tujuan:</label>
-                            <select name='bank' class="form-control">
-                                <option value=''>-- Pilih Bank Tujuan --</option>
-                                @foreach ($banktrans as $bank)
-                                <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label  class="control-label"> Jumlah:</label>
-                            @if($checkouttype==1) 
-                            <input type="text" class="form-control" placeholder="Jumlah Transfer" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
-                            @else
-                                @if($order->status < 2)
-                                    <input class="form-control" placeholder="Jumlah Transfer" type="text" name="jumlah" value="{{$order->dp}}" required>
-                                @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-                                    <input class="form-control" placeholder="Jumlah Transfer" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
+                        {{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}}
+                            <div class="form-group">
+                                <label  class="control-label"> Nama Pengirim:</label>
+                                <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label  class="control-label"> No Rekening:</label>
+                                <input type="text" class="form-control" placeholder="No Rekening" name="noRekPengirim" required>
+                            </div>
+                            <div class="form-group">
+                                <label  class="control-label"> Rekening Tujuan:</label>
+                                <select name='bank' class="form-control">
+                                    <option value=''>-- Pilih Bank Tujuan --</option>
+                                    @foreach (list_banks() as $bank)
+                                    <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label  class="control-label"> Jumlah:</label>
+                                @if($checkouttype==1) 
+                                <input type="text" class="form-control" placeholder="Jumlah Transfer" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
+                                @else
+                                    @if($order->status < 2)
+                                        <input class="form-control" placeholder="Jumlah Transfer" type="text" name="jumlah" value="{{$order->dp}}" required>
+                                    @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
+                                        <input class="form-control" placeholder="Jumlah Transfer" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
+                                    @endif
                                 @endif
-                            @endif
-                        </div>
-                        <button type="submit" class="btn btn-success">Konfirmasi Order</button>
-                    {{Form::close()}}
-                @endif
+                            </div>
+                            <button type="submit" class="btn btn-success">{{trans('content.step5.confirm_btn')}}</button>
+                        {{Form::close()}}
+                    </div>
                 </div>
             </div>
+            @endif
 
             @if($paymentinfo!=null)
             <h3><center>Paypal Payment Details</center></h3><br>
@@ -163,17 +172,57 @@
             @endif 
           
             @if($order->jenisPembayaran==2)
-            <h3><center>Konfirmasi Pemabayaran Via Paypal</center></h3><br>
-            <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
-            {{$paypalbutton}}
-            <br>
-            @elseif($order->jenisPembayaran==6)
-                @if($order->status == 0)
-                <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
-                <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
-                {{$bitcoinbutton}}
+            <div class="well">
+                <center>
+                    <h3>{{trans('content.step5.confirm_btn')}} Paypal</h3>
+                    <hr>
+                    <p>{{trans('content.step5.paypal')}}</p>
+                </center>
+                <center id="paypal">{{$paypalbutton}}</center>
                 <br>
+            </div>
+            @elseif($order->jenisPembayaran==4) 
+                @if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))
+                <div class="well">
+                    <center>
+                        <h3>{{trans('content.step5.confirm_btn')}} iPaymu</h3>
+                        <hr>
+                        <p>{{trans('content.step5.ipaymu')}}</p>
+                        <a class="btn btn-info" href="{{url('ipaymu/'.$order->id)}}" target="_blank">{{trans('content.step5.ipaymu_btn')}}</a>
+                    </center>
+                    <br>
+                </div>
                 @endif
+            @elseif($order->jenisPembayaran==5 && $order->status == 0)
+            <div class="well">
+                <center>
+                    <h3>{{trans('content.step5.confirm_btn')}} DOKU MyShortCart</h3>
+                    <hr>
+                    <p>{{trans('content.step5.doku')}}</p>
+                    {{ $doku_button }}
+                </center>
+                <br>
+            </div>
+            @elseif($order->jenisPembayaran == 6 && $order->status == 0)
+            <div class="well">
+                <center>
+                    <h3>{{trans('content.step5.confirm_btn')}} Bitcoin</h3>
+                    <hr>
+                    <p>{{trans('content.step5.bitcoin')}}</p>
+                    {{$bitcoinbutton}}
+                </center>
+                <br>
+            </div>
+            @elseif($order->jenisPembayaran == 8 && $order->status == 0)
+            <div class="well">
+                <center>
+                    <h3>{{trans('content.step5.confirm_btn')}} Veritrans</h3>
+                    <hr>
+                    <p>{{trans('content.step5.veritrans')}}</p>
+                    <button class="btn btn-info" onclick="location.href='{{ $veritrans_payment_url }}'">{{trans('content.step5.veritrans_btn')}}</button>
+                </center>
+                <br>
+            </div>
             @endif
         </div>
         <div class="clear"></div>

@@ -145,18 +145,16 @@
                 <div class="list col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="post-category">
                         @if(is_outstok($listproduk))
-                            <div class="item-icon"><span class="label label-default">KOSONG</span></div>
-                        @else
-                            @if(is_terlaris($listproduk))
-                            <div class="item-icon"><span class="label label-danger">HOT ITEM</span></div>
-                            @elseif(is_produkbaru($listproduk))
-                            <div class="item-icon"><span class="label label-info">BARU</span></div>
-                            @endif
+                        <div class="item-icon"><span class="label label-default">KOSONG</span></div>
+                        @elseif(is_terlaris($listproduk))
+                        <div class="item-icon"><span class="label label-danger">HOT ITEM</span></div>
+                        @elseif(is_produkbaru($listproduk))
+                        <div class="item-icon"><span class="label label-info">BARU</span></div>
                         @endif
                         <div class="image-container">
-                        <a href="{{product_url($listproduk)}}">
-                            {{HTML::image(product_image_url($listproduk->gambar1,'medium'), short_description($listproduk->nama,15))}}
-                        </a>
+                            <a href="{{product_url($listproduk)}}">
+                                {{HTML::image(product_image_url($listproduk->gambar1,'medium'), short_description($listproduk->nama,15))}}
+                            </a>
                         </div>
                         <div class="col-xs-6 col-sm-6" id="desc-produk" style="display:none;">
                             {{short_description($listproduk->deskripsi, 230)}}
