@@ -122,11 +122,11 @@
                             <form method="post" action="{{URL::to('testimoni')}}" role="form">
                                 <div class="form-group">
                                     <label for="name">Nama Anda</label>
-                                    <input type="text" class="form-control" name="nama" id="name" placeholder="Nama Anda" required>
+                                    <input type="text" class="form-control" name="nama" id="name" value="{{Input::old('nama')}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Testimonial</label>
-                                    <textarea name="testimonial" class="form-control" rows="3" placeholder="Testimonial anda" required></textarea>
+                                    <textarea name="testimonial" class="form-control" rows="3" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-success">Kirim Testimonial</button>
                                 <button type="reset" class="btn btn-default">Reset</button>

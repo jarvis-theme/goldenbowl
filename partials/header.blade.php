@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 pad0">
         <div id="sign-up">
             @if( is_login() )
             <div class="account">
                 <a href="{{url('member')}}">
-                    <img src="{{url(dirTemaToko().'goldenbowl/assets/img/login.png')}}" alt="My Account" title="My Account">
+                    <img src="//d3kamn3rg2loz7.cloudfront.net/assets/goldenbowl/assets/img/login.png" alt="My Account" title="My Account">
                 </a>
             </div>
             <div class="login">
@@ -14,7 +14,7 @@
             </div>
             @else
             <div class="account">
-                <img src="{{url(dirTemaToko().'goldenbowl/assets/img/login.png')}}" alt="My Account">
+                <img src="//d3kamn3rg2loz7.cloudfront.net/assets/goldenbowl/assets/img/login.png" alt="My Account">
             </div>
             <div class="login">
                 <ul>
@@ -57,7 +57,7 @@
             @endforeach
             <li class="search">
                 <button class="btn-form">
-                    <img src="{{url(dirTemaToko().'goldenbowl/assets/img/zoom.png')}}" alt="Search">
+                    <img src="//d3kamn3rg2loz7.cloudfront.net/assets/goldenbowl/assets/img/zoom.png" alt="Search">
                 </button>
             </li>
         </ul>

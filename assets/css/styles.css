@@ -1177,7 +1177,7 @@ body {
       color: #79b700; }
 
 #detail-product {
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
   margin: 20px; }
   #detail-product .select-style {
@@ -1229,11 +1229,8 @@ body {
     right: 0;
     background: url(images/arrow-partner.png) no-repeat -22px 0px !important; }
   #detail-product .tab-quantity {
-    margin: 0;
-    position: relative;
-    top: 22px;
-    float: left;
-    margin-right: 20px; }
+    margin: 10px 10px 10px 12px;
+    float: left; }
   #detail-product h2 {
     font-family: "Open Sans", sans-serif;
     color: #000;
@@ -1255,7 +1252,8 @@ body {
     border: 1px solid #54940f; }
   #detail-product .avalaible-text {
     padding: 0;
-    margin-top: 100px; }
+    clear: both;
+    margin-left: 12px; }
   #detail-product span {
     font-family: "Open Sans", sans-serif; }
     #detail-product span i {
@@ -1312,7 +1310,7 @@ body {
   #detail-product .title-product {
     width: 100%;
     overflow: hidden;
-    /*margin-top: 10px;*/ }
+    margin: 15px 0 15px 12px; }
     #detail-product .title-product h1 {
       font-family: "Open Sans", sans-serif;
       color: #000;
@@ -1470,7 +1468,7 @@ body {
   overflow: hidden;
   border-bottom: 1px solid #cccccc; }
   .login-page .login-desc {
-    margin: 20px; }
+    margin: 4em 20px 20px; }
     .login-page .login-desc h1, .member-title {
       font-family: "Open Sans", sans-serif;
       color: #000;
@@ -1493,7 +1491,7 @@ body {
       font-family: "Open Sans", sans-serif;
       font-size: 1em;
       font-weight: 400;
-      padding: 10px;
+      padding: 13px 30px;
       border-radius: 5px;
       margin-left: 10px; }
       .login-page .tabs-btn-login .register:hover {
@@ -1527,7 +1525,6 @@ body {
     }
     .login-page .login-wrap .forgot {
       font-family: "Open Sans", sans-serif;
-      color: #000;
       font-size: 1em;
       font-weight: 400; }
     .login-page .login-wrap .btn-login {
@@ -1588,6 +1585,7 @@ body {
   }
 
 .post img{
+  max-width: 168px;
   height: auto;
 }
 .product-new a img{
@@ -1774,7 +1772,7 @@ h1.col-xs-12.col-sm-12{
 }
 .toko{text-transform: uppercase;}
 .bx-wrapper .bx-prev{left: -45px !important}
-.bx-wrapper .bx-next{right: -45px !important}
+/*.bx-wrapper .bx-next{right: -45px !important}*/
 .center{text-align: center;}
 #captcha{width: 50%}#search .single-categories{padding: 0}
 .noresult{font-style:italic; text-align:center}.transparent{background-color:transparent}#map-info{margin-bottom:30px}
@@ -1888,7 +1886,14 @@ form[name="order"] > input[name="SAVE"]:hover {
 }
 .adv-full { margin-bottom: 10px}
 .adv-full:last-child { margin-bottom: 0 }
-
+.picmix { width: 30px; margin-top: 2px; opacity: 0.9; }
+.picmix:hover { opacity: 1; }
+.midtrans { padding: 8px; background: #fcfcfc; }
+.tabs-caption .tab-btn { margin-left: 12px; float: left; margin-top: 7px; }
+.related-post .col-md-3 { width: 22% !important; }
+.midtrans { background: #fff; padding: 8px; }
+.pad0 { padding: 0; }
+.pages { padding: 20px 10px; }
 
 @media screen and (max-width: 321px){
   #footer .icon { margin: 2px }
@@ -1909,8 +1914,12 @@ form[name="order"] > input[name="SAVE"]:hover {
 @media screen and (max-width: 416px){
   .sortby{ display: none; }
 }
+@media screen and (max-width: 469px){
+  #captcha { margin-top: 5px; width: 130%; }
+}
 @media screen and (min-width: 480px) and (max-width: 767px){
-  .product-new a img{width: auto}
+  .product-new a img{width: auto;}
+  .left-section .product-new a img{max-width: 180px;}
   .left-section #tab-product-new .tab-product-name{width: 50%; margin: 0 0 10px 10px}
   .left-section #tab-product-new .tab-price{width: 50%; margin: 0 0 0px 10px}
 }
@@ -1922,6 +1931,17 @@ form[name="order"] > input[name="SAVE"]:hover {
   .register-page{ padding-right: 20px; }
   .btn-success{ margin-top: 10px; }
   .fb-share-button {top: -5 !important; margin-top: -5px !important;}
+  .left-section #tab-product-new img { float: none; }
+  .left-section #tab-product-new .tab-product-name { float: none; }
+  .left-section #tab-product-new .product-name { float: none; }
+  .left-section #tab-product-new .tab-price { float: none; }
+  .left-section #tab-product-new .price { float: none; }
+  .left-section #tab-product-new .product-new { text-align: center; }
+  #detail-product .tab-quantity { float: none; text-align: center; margin-top: 20px; }
+  #detail-product .avalaible-text { text-align: center; }
+  .tabs-caption .tab-btn { text-align: center; }
+  .tab-btn button { display: inline-block; }
+  #detail-product .title-product { text-align: center; }
 }
 @media only screen and (width: 480px){
   .left-section #tab-product-new .tab-product-name{margin: 10px 0;width: 100%}
@@ -1934,6 +1954,7 @@ form[name="order"] > input[name="SAVE"]:hover {
   .list .post-category .image-container{width: 100%; height: auto; float: none}
   .clearboth{clear: both}
   .login{float: none}
+  input[name="kodeorder"] { margin-bottom: 10px; }
 }
 @media only screen and (width: 768px){
   .related{padding: 0}
@@ -1953,6 +1974,9 @@ form[name="order"] > input[name="SAVE"]:hover {
 @media screen and (max-width: 1023px){
   #sosmed{text-align: left; padding: 0}
 }
+@media screen and (max-width: 960px){
+  .related-post .col-md-3 { width: auto !important; }
+}
 @media screen and (max-width: 980px){
   .social-media{ width: 40% }
 }
@@ -1962,4 +1986,8 @@ form[name="order"] > input[name="SAVE"]:hover {
 }
 @media screen and (max-width: 1279px) {
   .sortby{display: none}
+}
+@media screen and (max-width: 480px){
+  .related-post .col-md-3 { width: 90% !important; }
+  .related-post .related { text-align: center; }
 }

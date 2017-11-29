@@ -11,13 +11,13 @@
                             <div class="form-group">
                                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+                                    <input type="email" class="form-control" name="email" value="{{Input::old('email')}}" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword" class="col-sm-2 control-label">Password</label>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -36,7 +36,6 @@
                 <div class="col-sm-6">
                     <div class="login-desc">
                         <h1>Segeralah mendaftar</h1>
-                        <span>Dengan mendaftar, anda dapat berbelanja dengan lebih cepat!!</span>
                     </div>
                     <div class="tabs-btn-login">
                         <a href="{{url('member/create')}}" class="register">Register</a>

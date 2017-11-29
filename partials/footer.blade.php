@@ -60,9 +60,6 @@
                         @if(!empty($kontak->bb))
                         <li><a href="#"> {{$kontak->bb}}</a></li>
                         @endif
-                        @if(!empty($kontak->ym))
-                        <li>{{ymyahoo($kontak->ym)}}</li>
-                        @endif
                     </ul>
                 </div>
                 <div class="link">
@@ -90,27 +87,22 @@
                 @if(count(list_payments()) > 0)
                     @foreach(list_payments() as $pay)
                         @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                        <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
+                        <img src="//d3kamn3rg2loz7.cloudfront.net/img/bank/ipaymu.jpg" alt="ipaymu" title="Ipaymu" />
                         @endif
                         @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                        <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
+                        <img src="//d3kamn3rg2loz7.cloudfront.net/img/bitcoin.png" alt="bitcoin" title="Bitcoin" />
                         @endif
                         @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                        <img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Paypal" />
+                        <img src="//d3kamn3rg2loz7.cloudfront.net/img/bank/paypal.png" alt="paypal" title="Paypal" />
                         @endif
                     @endforeach
                 @endif
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
+                <img src="//d3kamn3rg2loz7.cloudfront.net/img/bank/doku.jpg" alt="doku myshortcart" title="Doku" />
                 @endif
                 @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
-                <img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+                <img src="//d3kamn3rg2loz7.cloudfront.net/img/bank/midtrans.png" class="midtrans" alt="Midtrans" title="Midtrans">
                 @endif
-            </div>
-            <div class="copyright">
-                <p class="left-company">
-                    &copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a class="title-copyright" href="http://jarvis-store.com" target="_blank"> Jarvis Store</a>
-                </p>
             </div>
             <div class="social-media">
                 <span id="footer-sosmed">Ikuti Kami</span>
@@ -144,6 +136,18 @@
                     <div class="icon" title="Instagram"><i class="fa fa-instagram"></i></div>
                 </a>
                 @endif
+                @if(!empty($kontak->picmix))
+                <a href="{{url($kontak->picmix)}}" target="_blank" title="Picmix">
+                    <div class="icon">
+                        <img class="picmix" src="//d3kamn3rg2loz7.cloudfront.net/blogs/event/icon-picmix.png">
+                    </div>
+                </a>
+                @endif
+            </div>
+            <div class="copyright">
+                <p class="left-company">
+                    &copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a class="title-copyright" href="http://jarvis-store.com" target="_blank"> Jarvis Store</a>
+                </p>
             </div>
         </div>
     </div>

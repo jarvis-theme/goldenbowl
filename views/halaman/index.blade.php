@@ -106,7 +106,7 @@
                         <div class="tabs-title-typical">
                             <h1>{{$data->judul}}</h1>
                         </div>
-                        <div class="tabs-description">
+                        <div class="pages">
                             {{$data->isi}}
                         </div>
                     </div>

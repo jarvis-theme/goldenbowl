@@ -104,13 +104,13 @@
                     <div id="detail-product">
                         <form action="#" id="addorder">
                             <div class="row">
-                                <div class="col-sm-7 col-lg-6">
+                                <div class="col-sm-5">
                                     <div class="zoom-caption">
                                         <img id="imgZoom" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}" alt="{{$produk->nama}}">
                                     </div>
                                     <br>
                                 </div>
-                                <div class="col-sm-12 col-lg-6">
+                                <div class="col-sm-7">
                                     <div class="tabs-caption">
                                         <div id="product_detail">
                                             <ul class="caption-thumbnail">
@@ -140,6 +140,23 @@
                                                 @endif
                                             </ul>
                                         </div>
+                                        <div class="title-product">
+                                            <h1>{{$produk->nama}}</h1>
+                                            @if(!empty($produk->hargaCoret))
+                                            <span><del>{{price($produk->hargaCoret)}}</del></span>
+                                            @endif
+                                            <h2>{{price($produk->hargaJual)}}</h2>
+                                        </div>
+                                        <div class="avalaible-text">
+                                            @if($produk->stok > 0)
+                                                <span>
+                                                    <i class="ceklist fa fa-check"></i>
+                                                </span>
+                                                <span>Stok tersedia, <span class="text-color">{{$produk->stok}} item</span></span>
+                                            @else
+                                                <span class="text-color">Stok habis</span>
+                                            @endif
+                                        </div>
                                         <div class="tab-quantity">
                                             @if($opsiproduk->count() > 0)
                                                 <h3>Opsi :</h3>
@@ -159,16 +176,6 @@
                                             <input type='text' name='qty' value='1' class='qty' />
                                             <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                         </div>
-                                        <div class="avalaible-text">
-                                            @if($produk->stok > 0)
-                                                <span>
-                                                    <i class="ceklist fa fa-check"></i>
-                                                </span>
-                                                <span>Stok tersedia, <span class="text-color">{{$produk->stok}} item</span></span>
-                                            @else
-                                                <span class="text-color">Stok habis</span>
-                                            @endif
-                                        </div>
                                         <div class="tab-btn"> 
                                             <button class="baddtocart btn-checkout chart" type="submit">Beli</button>
                                         </div>
@@ -176,13 +183,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="title-product">
-                                <h1>{{$produk->nama}}</h1>
-                                @if(!empty($produk->hargaCoret))
-                                <span><del>{{price($produk->hargaCoret)}}</del></span>
-                                @endif
-                                <h2>{{price($produk->hargaJual)}}</h2>
-                            </div>
+                            
                             <div class="tabs-option-category">
                                 <ul class="tabs">
                                     <li class="tab-link current" data-tab="tab-1">Deskripsi Produk</li>
@@ -218,7 +219,7 @@
                                             <div class="item-icon"><span class="label label-info">BARU</span></div>
                                         @endif
                                         <a href="{{product_url($relproduk)}}">
-                                            <img src="{{product_image_url($relproduk->gambar1,'thumb')}}" alt="{{$relproduk->nama}}">
+                                            <img src="{{product_image_url($relproduk->gambar1)}}" alt="{{$relproduk->nama}}">
                                         </a>
                                         <h2>{{shortDescription($relproduk->nama,22)}}</h2>
                                         <h3><strong>{{price($relproduk->hargaJual)}}</strong></h3>
